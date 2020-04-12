@@ -1,4 +1,4 @@
-package HTTPMethod
+package helpers
 
 type HTTPMethod int
 
