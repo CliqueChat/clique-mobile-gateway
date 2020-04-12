@@ -2,14 +2,14 @@ package handlers
 
 import (
 	"fmt"
-	HTTPMethod "github.com/CliqueChat/clique-mobile-gateway/helpers"
+	"github.com/CliqueChat/clique-common-lib/"
 	"github.com/gorilla/mux"
 	"net/http"
 )
 
 func InitHomeHandles(r *mux.Router) {
-
-	r.HandleFunc("/", home).Methods(HTTPMethod.GET.String())
+	fmt.Println(helpers)
+	r.HandleFunc("/", home).Methods(http.MethodGet)
 }
 
 func home(w http.ResponseWriter, r *http.Request) {

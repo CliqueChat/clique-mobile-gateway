@@ -1,8 +1,8 @@
 package main
 
 import (
+	"github.com/CliqueChat/clique-common-lib/helpers"
 	"github.com/CliqueChat/clique-mobile-gateway/handlers"
-	"github.com/CliqueChat/clique-mobile-gateway/helpers"
 	"github.com/gorilla/mux"
 	"github.com/magiconair/properties"
 	"log"
