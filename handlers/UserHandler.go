@@ -7,8 +7,8 @@ import (
 )
 
 func InitUserHandles(r *mux.Router) {
-	r.HandleFunc("/user/profile", getUserProfile).Methods(helpers.GET.String())
-	r.HandleFunc("/user/create", createUser).Methods(helpers.POST.String())
+	r.HandleFunc("/user/profile", getUserProfile).Methods(http.MethodGet)
+	r.HandleFunc("/user/create", createUser).Methods(http.MethodPost)
 
 }
 
