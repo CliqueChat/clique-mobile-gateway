@@ -7,9 +7,10 @@ import (
 	"github.com/magiconair/properties"
 	"log"
 	"net/http"
+	"os"
 )
 
-var prop = properties.MustLoadFile("./properties/config.properties", properties.UTF8)
+var prop = properties.MustLoadFile(os.Getenv("CLIQUE_CONFIG")+"/clique-mobile-gateway.properties", properties.UTF8)
 
 func main() {
 
