@@ -1,7 +1,6 @@
 package handlers
 
 import (
-	"github.com/CliqueChat/clique-mobile-gateway/helpers"
 	"github.com/gorilla/mux"
 	"net/http"
 )
