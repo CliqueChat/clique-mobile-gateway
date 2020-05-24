@@ -1,16 +1,16 @@
 package main
 
 import (
-	"github.com/CliqueChat/clique-common-lib/helpers"
 	"github.com/CliqueChat/clique-mobile-gateway/handlers"
+	"github.com/CliqueChat/clique-mobile-gateway/helpers"
+	"github.com/CliqueChat/clique-mobile-gateway/resources"
 	"github.com/gorilla/mux"
-	"github.com/magiconair/properties"
 	"log"
+	"net"
 	"net/http"
-	"os"
 )
 
-var prop = properties.MustLoadFile(os.Getenv("CLIQUE_CONFIG")+"/clique-mobile-gateway.properties", properties.UTF8)
+var prop = resources.GetApplicationProfile()
 
 func main() {
 
@@ -19,9 +19,13 @@ func main() {
 	// Read host and port from property file
 	host, _ := prop.Get(helpers.HOST)
 	port, _ := prop.Get(helpers.PORT)
+	tcpPort, _ := prop.Get(helpers.TcpHost)
 
-	log.Println("STARTING APPLICATION IN " + host + ":" + port)
+	log.Println("APPLICATION STARTED ON " + host + ":" + port)
+	log.Printf("STARTED TCP CONNECTION ON PORT: " + tcpPort)
+
 	log.Fatal(http.ListenAndServe(host+":"+port, setupRoutes()))
+	log.Fatal(net.Listen("tcp_clique", "4000"))
 
 }
 
